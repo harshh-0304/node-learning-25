@@ -15,7 +15,8 @@ const loginUser = async (req, res) => {
   //normal passwoed compare -->
 
   //const foundUserFromEmail = userModel.findOne({email:req.body.email})
-  const foundUserFromEmail = await userModel.findOne({ email: email });
+  const foundUserFromEmail = await userModel.findOne({ email: email }).populate("roleId"); // ✅ Populate roleId
+  ;
   console.log(foundUserFromEmail);
   //check if email is exist or not//
   if (foundUserFromEmail != null) {
